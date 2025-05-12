@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ggr_games_fivers', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->index();
+            $table->unsignedBigInteger('user_id')->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('provider');
             $table->string('game');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('g_g_r_games_fivers');
+        Schema::dropIfExists('ggr_games_fivers');
     }
 };
